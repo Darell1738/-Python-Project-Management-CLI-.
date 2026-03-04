@@ -8,12 +8,10 @@ def main():
     parser = argparse.ArgumentParser(description='Project Management CLI')
     subparsers = parser.add_subparsers(dest='command')
     
-    # User commands
     subparsers.add_parser('users', help='List all users')
     add_user = subparsers.add_parser('add-user', help='Add user')
     add_user.add_argument('--name', required=True)
     
-    # Project commands
     add_project = subparsers.add_parser('add-project', help='Add project')
     add_project.add_argument('--user', required=True)
     add_project.add_argument('--title', required=True)
@@ -21,7 +19,7 @@ def main():
     list_projects = subparsers.add_parser('projects', help='List user projects')
     list_projects.add_argument('--user', required=True)
     
-    # Task commands
+
     add_task = subparsers.add_parser('add-task', help='Add task')
     add_task.add_argument('--project', required=True)
     add_task.add_argument('--title', required=True)
@@ -32,7 +30,6 @@ def main():
     complete = subparsers.add_parser('complete', help='Complete task')
     complete.add_argument('--task-id', required=True)
     
-    # Interactive mode
     subparsers.add_parser('menu', help='Interactive menu')
     
     args = parser.parse_args()
@@ -66,7 +63,7 @@ def main():
             print(f"✗ User '{args.user}' not found")
     
     elif args.command == 'add-task':
-        # Find project by title (simplified)
+    
         project = None
         for p in dm.data['projects'].values():
             if p['title'].lower() == args.project.lower():

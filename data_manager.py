@@ -17,7 +17,7 @@ class DataManager:
                 print("Data file corrupted. Creating new data...")
                 return {'users': {}, 'projects': {}, 'tasks': {}}
         else:
-            # Create empty data structure
+        
             return {'users': {}, 'projects': {}, 'tasks': {}}
     
     def save(self):
