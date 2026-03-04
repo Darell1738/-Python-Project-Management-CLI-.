@@ -2,7 +2,6 @@ from cli import ProjectCLI
 import sys
 
 def main():
-    """Main entry point"""
     try:
         cli = ProjectCLI()
         cli.run()

@@ -19,7 +19,6 @@ def main():
     list_projects = subparsers.add_parser('projects', help='List user projects')
     list_projects.add_argument('--user', required=True)
     
-
     add_task = subparsers.add_parser('add-task', help='Add task')
     add_task.add_argument('--project', required=True)
     add_task.add_argument('--title', required=True)
@@ -63,7 +62,6 @@ def main():
             print(f"✗ User '{args.user}' not found")
     
     elif args.command == 'add-task':
-    
         project = None
         for p in dm.data['projects'].values():
             if p['title'].lower() == args.project.lower():

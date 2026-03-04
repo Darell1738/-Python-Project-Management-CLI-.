@@ -7,17 +7,14 @@ class DataManager:
         self.data = self.load()
     
     def load(self):
-        # Check if file exists and is not empty
         if os.path.exists(self.file) and os.path.getsize(self.file) > 0:
             try:
                 with open(self.file, 'r') as f:
                     return json.load(f)
             except json.JSONDecodeError:
-                # If file is corrupted, start fresh
                 print("Data file corrupted. Creating new data...")
                 return {'users': {}, 'projects': {}, 'tasks': {}}
         else:
-        
             return {'users': {}, 'projects': {}, 'tasks': {}}
     
     def save(self):
